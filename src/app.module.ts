@@ -4,6 +4,8 @@ import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CategoriaModule } from './categoria/categoria.module';
 import { Categoria } from './categoria/entities/categoria.entity';
+import { ProdutoModule } from './produto/produto.module';
+import { Produto } from './produto/entities/produto.entity';
 
 @Module({
   imports: [TypeOrmModule.forRoot({
@@ -13,12 +15,13 @@ import { Categoria } from './categoria/entities/categoria.entity';
       username: 'root',
       password: 'root',
       database: 'db_brecho',
-      entities: [Categoria],
+      entities: [Categoria,Produto],
       synchronize: true, 
       logging: false,
       bigNumberStrings: false 
   }),
-  CategoriaModule
+  CategoriaModule,
+  ProdutoModule
 ],
   controllers: [],
   providers: [],
